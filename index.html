@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+
+	<script>
+		
+var	obj = {
+
+	one: "Hello",
+	'newName' : "World",
+	newObj : {
+		a : 2,
+		b: 3,
+		o : {
+			c: 4,
+			d: 5
+		}
+	}
+}
+
+function iteration (object){
+	for(index in object){
+		if(typeof object[index] == 'object'){
+			iteration (object[index]);
+		}
+		else{
+				console.log(index + " - " + object[index]);
+		}
+	}
+}
+
+
+iteration(obj);
+	</script>
+</body>
+</html>
