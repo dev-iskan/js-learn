@@ -683,3 +683,40 @@ Worker.prototype.giveInfo = function() {
 
 
 }
+
+
+
+
+windows object{
+	
+	window.location - определяет url текущего окна
+	window.document -  обьект документ, отображаемого в окне.
+	window.document.getElementById('id') - выборка в документа блока с id
+	
+
+
+	window.setTimeout() - позволяет вызывать функцию через определенное время.
+	window.setInterval() - вызывает функцию постоянно через опр время.
+
+	window.onload = function() { - метод который позволяет выполнить функцию как только загрузится страница
+
+	}
+	element.style - обращается к стилю элемента
+	style.display - правило для аттрибута style элемента
+
+	clearInterval() -функция отменяет ранее запланированный метод
+
+	confirm(); - метод получающий либо true либо false
+	prompt(); - метод возвращающий строку полученную от пользователя
+
+
+
+
+
+
+
+
+
+
+
+}
