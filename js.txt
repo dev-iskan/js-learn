@@ -480,3 +480,50 @@ arr.lastIndexOf(value)- в обратном порядке
 for(var key in arr){
 	document.write(key+ ' => '+arr[key]+'<br>'+);
 }
+
+
+
+
+String{
+	
+	строка это обьект класса String, и к ней мы имеем доступ в виде массива:
+	str[10]; или str.charAt(10);
+
+	str.concat('text', 'text2', ...) - метод обьединения строк, принимает параметром строки которые нужно добавить
+
+
+	str.indexOf('substr', 'position') - метод нахождения подстроки в строке, и возвращает позицию начала подстроки, если не найдены то возвращает -1, также можно передать начальную позицию с которой надо начинать поиск
+
+	str.lasIndexOf('substr', 'postion')- то же самое но с конца
+
+	str.length() - возвращает количество символов
+
+	str.localeCompare('str1') - сравнивает с учетом локализации две строки, str и str1, если str>str1 то вернет 1, если две разные локализации, то вернет -1
+
+   примеры использования:
+   strings=['мир', 'привет', 'сравнение', 'что-то изучаем'];
+
+   strings=strings.sort(function (a,b) {
+
+   		return a.localeCompare(b);
+   })
+
+   таким образом мы отсортируем массив strings по порядку и длине строк
+
+
+   str.match(regexp) - возвращает массив результатов поиска, зависит от добавления g в regexp
+   str.replace(regexp, 'replacement') - заменяет результаты поиска
+   str.search(regexp) - возвращает позицию начала первой подстроки соответствующей regexp, игнорирует флаг g, -1 если не найдет
+   str.slice(index, last_index) - возвращает подстроку, где index это начало срезания, last_index это конечный индекс, который не попадает в новую подстроку.
+   str.split(delimiter, num_of_elements) - делит строку на массив где delimeter разделитель
+   str.substr(index, number) - берет substring с index начала и количеством number
+   str.toLocaleLowerCase() - переводит все символы с маленькой буквы
+   str.toLocaleUpperCase() - наоборот
+
+
+
+
+}
+
+
+
