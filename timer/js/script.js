@@ -72,4 +72,3 @@ window.onload = function() {
 	var intStop = setInterval(changeColor, 500);
 
 }
-
