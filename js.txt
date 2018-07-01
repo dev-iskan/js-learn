@@ -762,4 +762,52 @@ windows object{
 
 	window.outerHeight() - возвращает пиксели внешне полной высоты окна
 	window.outerWidth() - возвращает пиксели внешне полной ширины окна
+
+	window.location - ссылается на обьект location представляющий текущий url адрес отображающийся в строке браузера, также определяет методы инициализурующие загрузку нового документа в окно браузера
+	также к location можно обратиться и без window
+
+	у document также есть свойство location: document.location
+
+	свойства location:
+		location.href - содержит строку полного url адресса 
+		location.toString() - возвращает значение href
+		location.host -  содержит имя домена вместе с портом
+		location.hostname - содержит только имя домена
+		location.pathname - содержит путь к данному документу
+		location.protocol - имя протокола
+		location.hash - возвращает индентификатор фрагмента: js.test/#top , где #top - это индетификатор фрагмент
+		location.search - содержит часть url адресса следующая за вопросительным знаком: js.test/?id=1, где search вернет ?id=1
+
+
+		методы location:
+		location.assign()
+		location.replace()
+		location.reload() - заставляет обновить вкладкуы
+
+		window.location = "" ; - мы можем напрямую записать
+
+
+	обьект history:
+		history - хранит историю просмотра страниц
+		history.length - содержит кол-во элементов в списке истории
+
+		history.back() - возвращемся на пред документа который мы просматривали
+		history.forward() - перевод вперед
+		history.go(integer) - пропускает заданное число страниц, передвигаемся вперед если аргумент положительный по списку
+
+	обьект navigator:
+		window.navigator - содержит общую инфу о браузере 
+		navigator.appName - содержит имя приложения
+
+
+	обьект screen:
+		window.screen - представляет инфу о размере экрана и доступности цветов у клиента
+
+		screen.width - ширина экрана в пикселях
+		screen.height - высота
+		screen.availHeight - доступный размер экрана
+		screen.availWidth 
+		screen.colorDepth - глубина цвета
 }
+
+
