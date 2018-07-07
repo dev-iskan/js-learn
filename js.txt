@@ -811,3 +811,18 @@ windows object{
 }
 
 
+DOM{
+	document.getElementById('id') -> выбираем элемент по id возвращает обьект Element
+
+	document.getElementByName('name') - выбираем элемент по name атрибуту, возвращается массив выбранных элементов виде обьекта NodeList, при этом любые изменения будут сразу же отображаться в обьект NodeList т.е. живой массив	
+
+	document.getElementsByTagName('tags') - возвращает все элементы под тегом. также возвращается NodeList. также мы можем выбирать элементы под категорией, то есть можем делать выборку относительно родительского блока.
+
+	document.images - получаем доступ к html коллекции всех изображений на этой странице.
+	document.links - коллекция a ссылок
+	documnet.forrms - коллекция элементов формы
+
+	document.getElementsByClassName ('class') - выборка по именни класса
+
+	
+}
