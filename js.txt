@@ -825,4 +825,44 @@ DOM{
 	document.getElementsByClassName ('class') - выборка по именни класса
 
 	
+	селекторы: выборка производится по :
+		1. p div h1 - по тегам
+		2. #id .class - по id и class
+		3. input[name='email'] - по параметрам name
+
+	document.querySelectorAll('селектор') - возвращает обьект NodeList который хранит все значения по селектору, но он не живой и возвращает только то что было сохранено на момент вызова.
+
+	document.querySelector() - получаем только первый элемент 
+
+	также можно дальше вызывать по цепочке этот метод, т.к он возвращает element обьект 
+	element.parentNode - возвращает родительский элемент
+
+	element.childNodes - вовзвращает все дочерние элементы в том числе текстовые и т.д. в виде NodeList, если есть коментарии они тоже принимаются в узле comments
+	element.firstChild - возвращает первый дочерний узел
+	element.lastChild - возвращает последний дочерний узел
+	element.nextSibling - возвращает следующий братский узел
+	element.previousSibling - возвращает предыдущий братский узел
+
+	element.nodeValue - возвращает значение node
+	element.nodeName - возвращает имя node с заглавной буквы : A, DIV, LI
+	element.nodeType - возвращает тип : 1 - element, 9 - document, 3- текстовые, 8- коменты
+
+	element.children - возвращает NodeList, разница с childNodes в том что возвращается только элементы node
+	element.firstElementChild - вернет первый дочерний элемент
+	element.lastElementChild - последний дочерний элемент
+	element.nextElementSibling - следующий братский элемент
+	element.previousElementSibling - предыдущий
+	children.length - количество обьектов в массиве
+
+	element.id - возвращает id элемента, также можно дать новое значение, element.id = "hello"
+	document.forms[0].id -также вернет id формы
+	element.action - возвращает action атрибут
+	.href,  но например for="" в js нельзя выбирать так как оно зарезервировано под цикл, вместо этого нужно написать .htmlFo и в других случаях для доступа к зарезервированым словам нужно писать html'Attr' перед самим словом
+
+	element.setAttribute('attribute', 'value') - метод который назначит аттрибут для элемента
+	element.getAttribute('attribute') - возврвщает значение аттрибута элемента
+	element.hasAttribute('attribute') - проверяет есть ли такой аттрибут у элемента
+	element.removeAttribute('attribute')- удаляет данный аттрибут
+
 }
+
