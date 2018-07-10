@@ -866,3 +866,64 @@ DOM{
 
 }
 
+содержимое HTML элементов{
+	содержимое элемента можно в 3 вариантах: 
+	1- HTML
+	2- в виде простого текста
+	3-  в виде текстового узла
+
+	element.innerHTML - возвращает HTML код
+	<a href="index-1.html">About</a>
+	если мы попытаемся поменять innerHTML - то мы просто введем текст вместо html кода
+
+	element.outerHTML - получаем строку разметки html содержащий открывающий и закрывающий теги
+	<li id="myLi" class="current"><a href="index-1.html">About</a></li>
+
+	element.insertAdjacentHTML("position", 'html'); -добавляет разметку на определенную позицию
+	position может быть : beforebegin-перед откр тегом, afterbegin-после откр тега, beforeend-перед закр тегом, afterend-после закр тега
+
+	element.textContent - возвращает текстовое значение элемента:
+	About
+
+	также можно спокойно изменять значение этого свойтсва: element.textContent = "hello";
+	element.innerText = "hello" - свойство используется для internet explorer
+
+	при сохранении полученного результата от этих двух свойств, 1 textContent учитывает табуляции, строки, и пробелы все, 2 innerText - форматирует так что нету табуляции и лишних пробелов	
+
+	document.createElement('div') - создает новый элемент
+	document.createTextNode('text body') - создает новый текстовый узел
+	document.createComment('comment') - создает коментовый узел
+	document.createDocumentFragment() - создает фрагмент
+
+	document.cloneNode(type); - копирует обьект и сохраняет в другой, но он не копирует дочерние элементы, если первым аргументом вместо type пропишем true то он рекурсивно будет копировать
+
+	чтобы добавить узлы в документ html используя методы:
+	element.appendChild(node) - становится последним дочерним узлом элемента
+	element.insertBefore(вставляемы узел, узел перед которым вставляется)- внутри element добавится новый элемент который будет дочерним для element, если второй параметр будет null - то он добавится в конец дочерних элементов
+
+	если же элемент который хотим вставить уже существует, то мы можем перемещать его просто вдоль element:
+	wrap.insertBefore(h2, null);
+
+	<div class="wrap">
+	...
+	..
+	<h2> Hello </h2>
+	</div>
+
+
+	element.removeChild(h1); - удаляет дочерний элемент у Element
+	element.replaceChild(remove, replace) - у element удаляет дочерний элемент и заменяет replace элементом
+
+
+	document fragment служат временным хранилищем для других узлов, яв-ся самостоятельным и не входят в состав другого документа. то есть нет родителя
+
+
+}
+
+
+
+
+
+
+
+
