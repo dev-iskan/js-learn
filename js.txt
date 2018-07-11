@@ -921,6 +921,61 @@ DOM{
 }
 
 
+формы {
+	
+
+	у всех обьектов form есть свойство .type которое хранит значение атрибута type
+
+	получить форму через document.formName, где formName это свойство name у формы
+
+	document.forms - содержит в себе коллекцию всех форм в документе: document.forms[0] или document.forms.formName - вызов по имени формы
+
+	у форм есть также дочерние элементы: input и т.д. их можно получить опять таки по имени тега: document.forms.formName.email - получим input с именем email
+	дальше по цепочке у email можно получить все свойства input: document.forms.formName.email.type или document.forms.formName.email.value
+
+	НО! желательно получать все элементы по id
+
+	если же мы попробуем получить по name и если существует несколько тегов с одним именем, то мы получим коллекцию RadioNodeList со всеми элементами с одинаковым name
+
+	у checkbox элментов есть свойство defaultChecked - которое возвращает истину если данная опция по дефолту выбрана: forms.formName.option.defaultChecked
+
+	для получения абсолютно всех элементов формы можно вызвать свойство elements которое вернет коллекцию HTMLFormControlsCollection: document.forms.formName.elements и доступ к каждому элементу можно получить по индексу или по name, также можно узнать количество элементов внутри коллекции через свойство elements.length
+	но если вызовем length у формы просто то также получим количество как в elements.length
+
+	доступ к аттрибутам в теге <form> можно получить через свойство обьекта:
+	var form = document.forms.firstForm;
+	console.log(form.action);
+	console.log(form.target);
+	console.log(form.method);
+
+	методы form:
+	form.submit() - отправляет форму
+	form.reset() - обнуляет форму
+
+
+	есть общие свойства которые определены у каждого элемента у формы document.forms.formName.email.:
+	type, form - ссылка на родительский обьект формы, name, value - мы также можем изменять value="text";
+
+	у элементов select если есть multiple="true", то при вызове select.type нам выведтся строка : select-multiple в ином случае select-one
+	у элемента select есть свойство .options которое возвращает коллекцию HTMLOptionsCollection которое хранит значение тегов option, если же мы не работает с select-multiple, то свойство .selectedIndex вернет значение выбраного option
+
+	у options свойства есть другое свойство .selected - которое возвращает правду если данный option выбран: select.option[0].selected , свойство .text у select покажет видимый текст у option
+
+
+	также у тега select можно изменить или добавить количество опций:
+	var select = document.forms.firstForm.elements.mySelect
+	select.length - длина селекта, если же будем изменять данное свойство то мы можем так изменять количество опций
+
+	если же хотим удалить конкретный option, то нужно присвоить данному элементу null: select.options[2] = null;
+
+	создание обьекта option:
+	var newOption = new Option('text', 'value', '(boolean)defaultSelected', '(boolean)shouldItBeSelected'); для того чтобы связать данный option с селектом, то мы
+	выбираем просто сам селект и его options и по индексу добавляем: select.options[0] = newOption;
+
+
+}
+
+
 
 
 
