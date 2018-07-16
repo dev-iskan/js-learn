@@ -1,60 +1,51 @@
-window.onload = function(e) {		
-	
-	var button = document.getElementById('myButton');
-	// button.addEventListener('click', handler, false);
-	// button.attachEvent('onclick', handler);
+window.onload = function(e) {
 
-	/*button.onclick=function(e){
-		return false;
-	}*/
+    var button = document.getElementById('myButton');
+    // button.addEventListener('click', handler, false);
+    // button.attachEvent('onclick', handler);
 
-	function handler(e){
+    /*button.onclick=function(e){
+    	return false;
+    }*/
 
-		e= e || window.event;
-		// console.log(e.type);
-		// console.log(this);
-		if(e.preventDefault()){
-			e.preventDefault();
-			console.log(e.defaultPrevented);
-		}
-		else if(e.returnValue){
-			e.returnValue = false;
-		}
-		else{
-			return false;
-		}
-	}
+    function handler(e) {
 
-	function addEvent(target, type, handler){
-		if(target.addEventListener){
-			target.addEventListener(type, handler, false);
-		}
-		else{
-			target.attachEvent('on'+type, function(event){
-				return handler.call(target, e);
-			})
-		}
-	}
+        e = e || window.event;
+        // console.log(e.type);
+        // console.log(this);
+        if (e.preventDefault()) {
+            e.preventDefault();
+            console.log(e.defaultPrevented);
+        } else if (e.returnValue) {
+            e.returnValue = false;
+        } else {
+            return false;
+        }
+    }
 
-	addEvent(button, 'click', handler);
+    function addEvent(target, type, handler) {
+        if (target.addEventListener) {
+            target.addEventListener(type, handler, false);
+        } else {
+            target.attachEvent('on' + type, function(event) {
+                return handler.call(target, e);
+            })
+        }
+    }
 
-	document.forms.myForm.elements.exampleInputEmail.onkeypress = function(e) {
-		if(e.charCode == 100){
-			return false;
-		}
-		else{
-			return true;
-		}
-	}
-	
+    addEvent(button, 'click', handler);
 
-	window.onbeforeonload = function(){
-		var message = "Hello World";
-		return message;
-	}
+    document.forms.myForm.elements.exampleInputEmail.onkeypress = function(e) {
+        if (e.charCode == 100) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+
+    window.onbeforeonload = function() {
+        var message = "Hello World";
+        return message;
+    }
 }
-
-
-	
-
-	
