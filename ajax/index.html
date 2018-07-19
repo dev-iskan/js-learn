@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" href="css/style.css"/>
+        <script src="js/script.js"></script>
+        <title>Объект Document</title>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="karkas">
+                    
+                <h1 onload="alert('hello')" id="header">Объект Document</h1>
+                        
+                <p><strong>HTML Формы</strong></p>
+                
+                <div class="myForm">
+                    <form id="firstForm" name="myForm">
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input data-chars="asdfsd" oninput="this.value = this.value.toUpperCase();" name="email" type="text" class="form-control" id="exampleInputEmail" placeholder="Email">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input name="password" type="password" class="form-control" id="exampleInputPassword" placeholder="Password">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputFile">File input</label>
+                        <input name="myfile" type="file" id="exampleInputFile">
+                      </div>
+                      <div class="checkbox">
+                          <input value = 'ONE' type="radio" name="option"> Option 1
+                          <input value = 'TWO' type="radio" name="option"> Option 1
+                          <input value = 'THREE' type="radio" name="option"> Option 1
+                          <input value = '4' type="radio" name="option"> Option 1
+                      </div>
+                      
+                      <div class="extraFields">
+                          <div class="hidden">
+                            <label for="exampleInputEmail1">New field with id ONE</label>
+                            <input name="txt1" type="text" value="ONE" class="form-control" id="ONE" placeholder="Email">
+                          </div>
+                          
+                          <div class="hidden">
+                            <label for="exampleInputEmail1">New field with id TWO</label>
+                            <input   name="txt2" type="text" value="TWO" class="form-control" id="TWO" placeholder="Email">
+                          </div>
+                          
+                          <div class="hidden">
+                            <label for="exampleInputEmail1">New field with id THREE</label>
+                            <input   name="txt3" type="text" value="THREE" class="form-control" id="THREE" placeholder="Email">
+                          </div>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Text</label>
+                        <textarea name="text" class="form-control" rows="3">dfgdfdfg</textarea>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Select</label>
+                        <select size="10" multiple="true" name="myselect" class="form-control">
+                          <option value = '1'>Option 1</option>
+                          <option value = '2'>Option 2</option>
+                          <option value = '3'>Option 3</option>
+                          <option value = '4'>Option 4</option>
+                          <option value = '5'>Option 5</option>
+                        </select>
+                      </div>
+                      <button id="myButton"  type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                </div>
+                <div class="events">
+                    <div id="one">
+                        DIV
+                        <p id="two">
+                            P
+                            <span id="three">
+                                SPAN
+                            </span>
+                        </p>
+                    </div>
+                </div>      
+            </div>      
+        </div>
+    </body>
+
+</html>
