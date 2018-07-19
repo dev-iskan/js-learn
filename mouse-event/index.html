@@ -5,6 +5,61 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/script.js"></script>
+    <script type="text/javascript">
+ function getScroll(w) {
+    w = w || window;
+    
+    if(w.pageXOffset != null) {
+        return {x:w.pageXOffset,y:w.pageYOffset}
+    }
+}
+
+function drag (el,event) {
+    var scroll = getScroll();
+    
+    var startX = event.clientX + scroll.x;
+    var startY = event.clientY + scroll.y;
+    
+    var elX = el.offsetLeft;
+    var elY = el.offsetTop;
+    
+    var deltaX = startX - elX;
+    var deltaY = startY - elY;
+    
+    if(document.addEventListener) {
+        document.addEventListener('mousemove',moveHandler,true);
+        document.addEventListener('mouseup',upHandler,true);
+    }
+    
+    if(event.stopPropagation) {
+        event.stopPropagation();
+    }
+    if(event.preventDefault) {
+        event.preventDefault();
+    }
+    
+    function moveHandler (e) {
+        var scroll = getScroll();
+        el.style.left = (e.clientX + scroll.x - deltaX) + 'px';
+        el.style.top = (e.clientY + scroll.x - deltaY) + 'px';
+        
+        if(e.stopPropagation) {
+            e.stopPropagation();
+        }
+    }
+    function upHandler (e) {
+        if (document.removeEventListener) { 
+            document.removeEventListener("mouseup", upHandler, true);
+            document.removeEventListener("mousemove", moveHandler, true);
+        }
+        
+        if(e.stopPropagation) {
+            e.stopPropagation();
+        }
+    }
+    
+}
+    </script>
     <title>Объект Document</title>
 </head>
 
@@ -56,14 +111,14 @@
                     <p id="two">
                         P
                         <span id="three">
-								SPAN
-							</span>
+                                SPAN
+                            </span>
                     </p>
                 </div>
             </div>
         </div>
     </div>
-    <div style="position:absolute; left:100px; top:100px; width:250px; background-color: white; border: 2px solid #f6f6f6;">            
+    <div style="position:absolute; left:100px; top:100px; width:250px; background-color: white; border: 2px solid #f6f6f6;">
         <div style="background-color: green; border:1px solid red; padding: 3px;" onmousedown="drag(this.parentNode,event);">
             Drag me
         </div>
