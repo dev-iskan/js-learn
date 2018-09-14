@@ -820,7 +820,7 @@ DOM{
 
 	document.images - получаем доступ к html коллекции всех изображений на этой странице.
 	document.links - коллекция a ссылок
-	documnet.forrms - коллекция элементов формы
+	document.forrms - коллекция элементов формы
 
 	document.getElementsByClassName ('class') - выборка по именни класса
 
