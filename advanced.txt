@@ -1,0 +1,21 @@
+Difference between ES5 and ES6
+
+
+textContent
+ele.textContent is in standard's spec around 2011, and is supported by browsers since about 2013. textContent's value is meant to be text only, not HTML. It is not style aware.
+  // change text content of first p tag
+  document.getElementsByTagName("p")[0].textContent = "I <b>love</b> JS";
+  // the bolded text won't be rendered in bold. Firefox, Chrome 2015-03
+
+
+innerHTML
+ele.innerHTML is the most useful, and supported by all browsers back to 2010. innerHTML can be text content or HTML source code.
+
+  // innerHTML can be used to insert plain text content or HTML
+  // this creates a list inside a div element
+  const ele = document.getElementsByTagName("div");
+  ele[0].innerHTML =  `<ul>
+  <li>a</li>
+  <li>b</li>
+  <li>c</li>
+  </ul>`;
