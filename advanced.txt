@@ -31,3 +31,115 @@ run:
 in order to use some features of es6 that babel cannot translate, we use polyfills
 just copy polyfill.min.js
 and add script into html
+
+
+
+
+Project 9 {
+  less 4 {
+    1. npm init
+    2. npm install webpack --save-dev
+    3. npm install jquery --save
+    4. npm install live-server -g     - create local  server
+  }
+
+  less 5 {
+    webpack  configurations:
+      create webpack.config.js
+
+      in webpack there are 4 concepts: 
+        1 Entry point
+        2 Output
+        3 Loader
+        4 Plugins
+
+          entry: './src/js/index.js',
+          output: {
+            path: path.resolve(__dirname, 'dist'),
+            filename: 'js/bundle.js'
+          },
+
+    add script into  package.json:
+      "dev": "webpack --mode development"
+
+    add webpack comand line:
+      npm install webpack-cli  --save-dev
+    
+    run webpack npm run dev
+ 
+    add production mode:
+      "build" : "webpack --mode production"
+  }
+
+  less 6 {
+    webpack dev server:
+      npm install webpack-dev-server --save-dev
+
+    add configs to webpack:
+      devServer: {
+        contentBase: './dist'
+      }
+
+    add new script:
+      "start": "webpack-dev-server --mode development --open"
+
+    in order to automatically add html to dist index.html we need plugins
+    their allows to do complex stuff
+      npm install html-webpack-plugin --save-dev
+
+    include in webpack.config:
+      const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+      ...
+
+      plugins: [
+        new HtmlWebpackPlugin({
+          filename: 'index.html',
+          template: './src/index.html'
+        })
+      ]
+  }
+
+  less 7 {
+    babel include:
+      npm install babel-core babel-preset-env babel-loader --save-dev
+    we need babel-core, preset and babel-loader in order webpack  to load babel
+
+    then add to webpack.config babel-loader:
+      module: {
+        rules: [
+          {
+            test: /\.js$/,
+            exclude: /node_modules/,
+            use: {
+              loader: 'babel-loader'
+            }
+          }
+        ]
+      }
+      here we add to modules -> rules array and then -> object with test,exclude,use properties
+
+    next we need to add new file .babelrc with babel configuraions:
+      {
+        "preset" : [ //preset collection of code transform plugins
+          "env", {
+            "target" : {
+              "browsers" : [
+                "last 5 versions",
+                "ie >= 8"
+              ]
+            }
+          }
+        ]
+      }
+
+    install polyfills for brand new features which is not in es5:
+      npm install babel-polyfill
+
+    then edit in webpack: 
+      entry: [
+        'babel-polyfill',
+        './src/js/index.js'
+      ],
+  }
+}
