@@ -167,5 +167,10 @@ Project 9 {
 
   less 12 {
     state concept
+    we  create state variable in index.js where we save all models
+  }
+
+  less 13 - 16 {
+    
   }
 }
