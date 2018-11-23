@@ -19,3 +19,15 @@ ele.innerHTML is the most useful, and supported by all browsers back to 2010. in
   <li>b</li>
   <li>c</li>
   </ul>`;
+
+
+
+install babel:
+npm install --save-dev babel-cli babel-preset-env babel-polyfill
+
+run:
+./node_modules/.bin/babel --presets env script.js --out-file script-transpiled2.js
+
+in order to use some features of es6 that babel cannot translate, we use polyfills
+just copy polyfill.min.js
+and add script into html
