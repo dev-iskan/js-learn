@@ -171,6 +171,19 @@ Project 9 {
   }
 
   less 13 - 16 {
-    
+    created full search and show recipes with pagination and loader logic
   }
+  add eslint:
+    npm install esling --save-dev
+
+  then init it and install standard style
+    ./node_modules/.bin/eslint --init
+
+  then fix all files in js directory
+    ./node_modules/.bin/eslint src/js/ --fix
+  and even add scrypt in package.json
+
+
+  add package fractional
+    npm install fractional
 }

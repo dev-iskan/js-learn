@@ -3,7 +3,8 @@ export const elements = {
   searchInput: document.querySelector('.search__field'),
   searchResultList: document.querySelector('.results__list'),
   searchResult: document.querySelector('.results'),
-  searchResultPages: document.querySelector('.results__pages')
+  searchResultPages: document.querySelector('.results__pages'),
+  recipe: document.querySelector('.recipe')
 }
 
 export const elementStrings = {
@@ -11,7 +12,7 @@ export const elementStrings = {
 }
 
 export const renderLoader = parent => {
-  const loader  = `
+  const loader = `
     <div class="${elementStrings.loader}">
       <svg>
         <use href="img/icons.svg#icon-cw"></use>
@@ -23,5 +24,5 @@ export const renderLoader = parent => {
 
 export const clearLoader = () => {
   const loader = document.querySelector(`.${elementStrings.loader}`)
-  if(loader) loader.parentElement.removeChild(loader)
+  if (loader) loader.parentElement.removeChild(loader)
 }
