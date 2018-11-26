@@ -185,5 +185,8 @@ Project 9 {
 
 
   add package fractional
-    npm install fractional
+    npm install fractional --save
+
+  add package uniqid
+    npm install --save
 }
