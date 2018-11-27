@@ -1,5 +1,7 @@
+/* eslint no-unused-vars: 0 */
+
 import axios from 'axios'
-import { key, proxy } from '../config'
+import { gmailKey, mailKey, proxy } from '../config'
 
 export default class Search {
   constructor (query) {
@@ -8,7 +10,7 @@ export default class Search {
 
   async getResults () {
     try {
-      const response = await axios(`${proxy}https://www.food2fork.com/api/search?key=${key}&q=${this.query}`)
+      const response = await axios(`${proxy}https://www.food2fork.com/api/search?key=${mailKey}&q=${this.query}`)
       this.result = response.data.recipes
     } catch (err) {
       console.log(err)
