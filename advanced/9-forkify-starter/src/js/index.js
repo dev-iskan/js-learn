@@ -14,9 +14,7 @@ import Likes from './models/Likes'
  * -- Shopping list object
  * -- Liked recipes
  */
-const state = {
-
-}
+const state = {}
 
 /** Search controller */
 const controlSearch = async () => {
