@@ -1,0 +1,54 @@
+install nodemon:
+  yarn global add nodemon
+
+in order to read filesystem we require it from node_modules
+  const fs = require('fs') - this package is out of the box of node
+
+then by using method fs.readFileSync we access our data.json file:
+  const json = fs.readFileSync(`${__dirname}/data/data.json`, 'utf-8')
+where first parameter is path to file and second is encoding format
+
+then we parse to real js object by using JSON.parse
+  const laptopData = JSON.parse(json)
+
+next we create server:
+first import http package
+  const http = require('http')
+
+then create server and pass callback which runs when someone access server:
+  const server = http.createServer((req, res) => {
+    console.log('Someone did access the server')
+  })
+
+and last set listener to listen port and ip:
+  server.listen(1337, '127.0.0.1', () => {
+    console.log('Listening for requests')
+  })
+
+edit server init in order to set header and response on request:
+  const server = http.createServer((req, res) => {
+    res.writeHead(200, {
+      'Content-type': 'text/html'
+    })
+    res.end('This is response')
+  })
+
+
+
+add url package:
+  const url = require('url')
+
+ req.url - is url on which we requesting
+ const query = url.parse(req.url, true) // we parse url to get detailed info about url
+ const pathName = url.parse(req.url, true).pathname // pathname in url
+ const query = url.parse(req.url, true).query // query in url parsed into object
+ const query = url.parse(req.url, true).query.id // id from query
+  
+
+in order to restrict access to laptop page if there is no such id we use such expression:
+  if (pathName === '/laptop' && id < laptopData.length) {
+    res.writeHead(200, {
+      'Content-type': 'text/html'
+    })
+    res.end(`This is Laptop page response for id = ${id}`)
+  }
