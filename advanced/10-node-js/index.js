@@ -21,7 +21,19 @@ const server = http.createServer((req, res) => {
     res.writeHead(200, {
       'Content-type': 'text/html'
     })
-    res.end(`This is Laptop page response for id = ${id}`)
+    // async function to read file
+    fs.readFile(`${__dirname}/templates/laptop.html`, 'utf-8', (err, readData) => {
+      const laptop = laptopData[id]
+      let output = readData.replace(/{%PRODUCTNAME%}/g, laptop.productName)
+      output = output.replace(/{%IMAGE%}/g, laptop.image)
+      output = output.replace(/{%PRICE%}/g, laptop.price)
+      output = output.replace(/{%SCREEN%}/g, laptop.screen)
+      output = output.replace(/{%CPU%}/g, laptop.cpu)
+      output = output.replace(/{%STORAGE%}/g, laptop.storage)
+      output = output.replace(/{%RAM%}/g, laptop.ram)
+      output = output.replace(/{%DESCRIPTION%}/g, laptop.description)
+      res.end(output)
+    })
   } else {
     res.writeHead(404, {
       'Content-type': 'text/html'
